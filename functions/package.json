@@ -1,0 +1,40 @@
+{
+  "name": "functions",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint --ext .js,.ts .",
+    "prebuild": "rimraf ./lib",
+    "build": "tsc",
+    "build-watch": "tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log",
+    "format": "prettier -w \"**/*.{ts,mts,cts,json}\"",
+    "format-c": "prettier -c \"**/*.{ts,mts,cts,json}\""
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0",
+    "nanoid": "^4.0.0",
+    "radash": "^10.3.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.25.4",
+    "firebase-functions-test": "^0.2.0",
+    "prettier": "2.8.1",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.5.4"
+  },
+  "private": true
+}
